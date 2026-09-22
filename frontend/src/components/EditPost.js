@@ -20,13 +20,16 @@ function EditPost({ post, onUpdated, onClose }) {
         formData.append("image", image);
       }
 
-      const response = await fetch(`http://localhost:8080/posts/${post._id}`, {
-        method: "PUT",
-        headers: {
-          authorization: localStorage.getItem("token"),
+      const response = await fetch(
+        `${process.env.REACT_APP_API_URL}/posts/${post._id}`,
+        {
+          method: "PUT",
+          headers: {
+            authorization: localStorage.getItem("token"),
+          },
+          body: formData,
         },
-        body: formData,
-      });
+      );
 
       const result = await response.json();
 

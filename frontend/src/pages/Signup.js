@@ -32,7 +32,7 @@ function Signup() {
       return toast.error("All field required");
     }
 
-    const url = "http://localhost:8080/signup";
+    const url = `${process.env.REACT_APP_API_URL}/signup`;
 
     try {
       const response = await fetch(url, {

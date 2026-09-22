@@ -17,7 +17,7 @@ function Home() {
 
   const getfeed = async () => {
     try {
-      const url = "http://localhost:8080/feed";
+      const url = `${process.env.REACT_APP_API_URL}/feed`;
 
       const response = await fetch(url, {
         method: "GET",

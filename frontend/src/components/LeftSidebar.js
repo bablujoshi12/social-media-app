@@ -1,10 +1,8 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
 
 function LeftSidebar() {
-  const navigate = useNavigate();
-
   const token = localStorage.getItem("token");
 
   let userId = null;

@@ -12,7 +12,7 @@ function Following() {
     const getFollowing = async () => {
       try {
         const response = await fetch(
-          `http://localhost:8080/users/${userId}/following`,
+          `${process.env.REACT_APP_API_URL}/users/${userId}/following`,
           {
             method: "GET",
             headers: {

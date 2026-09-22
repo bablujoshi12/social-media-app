@@ -24,12 +24,15 @@ function Profile() {
   useEffect(() => {
     const getUserProfile = async () => {
       try {
-        const response = await fetch(`http://localhost:8080/users/${userId}`, {
-          method: "GET",
-          headers: {
-            authorization: token,
+        const response = await fetch(
+          `${process.env.REACT_APP_API_URL}/users/${userId}`,
+          {
+            method: "GET",
+            headers: {
+              authorization: token,
+            },
           },
-        });
+        );
 
         const result = await response.json();
 
@@ -46,7 +49,7 @@ function Profile() {
     const getUserPosts = async () => {
       try {
         const response = await fetch(
-          `http://localhost:8080/posts/user/${userId}`,
+          `${process.env.REACT_APP_API_URL}/posts/user/${userId}`,
           {
             method: "GET",
             headers: {
@@ -96,7 +99,7 @@ function Profile() {
   const handleFollow = async () => {
     try {
       const response = await fetch(
-        `http://localhost:8080/users/${userId}/follow`,
+        `${process.env.REACT_APP_API_URL}/users/${userId}/follow`,
         {
           method: "POST",
           headers: {
@@ -114,7 +117,7 @@ function Profile() {
       toast.success(result.message);
 
       const profileResponse = await fetch(
-        `http://localhost:8080/users/${userId}`,
+        `${process.env.REACT_APP_API_URL}/users/${userId}`,
         {
           method: "GET",
           headers: {
@@ -164,13 +167,16 @@ function Profile() {
 
       formData.append("profileImage", selectedImage);
 
-      const response = await fetch("http://localhost:8080/profile/image", {
-        method: "PUT",
-        headers: {
-          authorization: token,
+      const response = await fetch(
+        `${process.env.REACT_APP_API_URL}/profile/image`,
+        {
+          method: "PUT",
+          headers: {
+            authorization: token,
+          },
+          body: formData,
         },
-        body: formData,
-      });
+      );
 
       const result = await response.json();
 
@@ -222,7 +228,7 @@ function Profile() {
         return toast.error("Username is required");
       }
 
-      const response = await fetch("http://localhost:8080/profile", {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/profile`, {
         method: "PUT",
         headers: {
           authorization: token,
@@ -274,7 +280,7 @@ function Profile() {
 
   const profileImage = user.profileImage?.startsWith("http")
     ? user.profileImage
-    : `http://localhost:8080/${user.profileImage}`;
+    : `${process.env.REACT_APP_API_URL}/${user.profileImage}`;
 
   return (
     <>

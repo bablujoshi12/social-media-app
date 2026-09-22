@@ -31,7 +31,7 @@ function Login() {
       return toast.error("All field required");
     }
 
-    const url = "http://localhost:8080/login";
+    const url = `${process.env.REACT_APP_API_URL}/login`;
 
     try {
       const response = await fetch(url, {

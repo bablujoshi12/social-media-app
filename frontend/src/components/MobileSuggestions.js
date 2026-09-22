@@ -15,7 +15,7 @@ function MobileSuggestions() {
       const decodedUser = jwtDecode(token);
 
       const response = await fetch(
-        "http://localhost:8080/users/search/username?username=",
+        `${process.env.REACT_APP_API_URL}/users/search/username?username=`,
         {
           method: "GET",
           headers: {
@@ -51,7 +51,7 @@ function MobileSuggestions() {
   const handleFollow = async (userId) => {
     try {
       const response = await fetch(
-        `http://localhost:8080/users/${userId}/follow`,
+        `${process.env.REACT_APP_API_URL}/users/${userId}/follow`,
         {
           method: "POST",
           headers: {
@@ -166,7 +166,7 @@ function MobileSuggestions() {
                           src={
                             user.profileImage?.startsWith("http")
                               ? user.profileImage
-                              : `http://localhost:8080/${user.profileImage}`
+                              : `${process.env.REACT_APP_API_URL}/${user.profileImage}`
                           }
                           alt={user.username}
                           className="w-100 h-100"

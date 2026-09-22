@@ -14,7 +14,7 @@ function RightSidebar() {
       const decodedUser = jwtDecode(token);
 
       const response = await fetch(
-        `http://localhost:8080/users/${decodedUser._id}`,
+        `${process.env.REACT_APP_API_URL}/users/${decodedUser._id}`,
         {
           method: "GET",
           headers: {
@@ -38,7 +38,7 @@ function RightSidebar() {
   const getSuggestions = async () => {
     try {
       const response = await fetch(
-        "http://localhost:8080/users/search/username?username=",
+        `${process.env.REACT_APP_API_URL}/users/search/username?username=`,
         {
           method: "GET",
           headers: {
@@ -79,7 +79,7 @@ function RightSidebar() {
   const handleFollow = async (userId) => {
     try {
       const response = await fetch(
-        `http://localhost:8080/users/${userId}/follow`,
+        `${process.env.REACT_APP_API_URL}/users/${userId}/follow`,
         {
           method: "POST",
           headers: {
@@ -147,7 +147,7 @@ function RightSidebar() {
                 src={
                   currentUser.profileImage?.startsWith("http")
                     ? currentUser.profileImage
-                    : `http://localhost:8080/${currentUser.profileImage}`
+                    : `${process.env.REACT_APP_API_URL}/${currentUser.profileImage}`
                 }
                 alt={currentUser.username}
                 className="w-100 h-100"
@@ -211,7 +211,7 @@ function RightSidebar() {
                           src={
                             user.profileImage?.startsWith("http")
                               ? user.profileImage
-                              : `http://localhost:8080/${user.profileImage}`
+                              : `${process.env.REACT_APP_API_URL}/${user.profileImage}`
                           }
                           alt={user.username}
                           className="w-100 h-100"

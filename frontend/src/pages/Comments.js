@@ -13,7 +13,7 @@ function Comments() {
   // Get comments
   const getComments = async () => {
     try {
-      const url = `http://localhost:8080/posts/${postId}/comments`;
+      const url = `${process.env.REACT_APP_API_URL}/posts/${postId}/comments`;
 
       const response = await fetch(url, {
         method: "GET",
@@ -60,7 +60,7 @@ function Comments() {
   // Get logged-in user profile
   const getProfile = async () => {
     try {
-      const url = `http://localhost:8080/profile`;
+      const url = `${process.env.REACT_APP_API_URL}/profile`;
 
       const response = await fetch(url, {
         method: "GET",
@@ -110,7 +110,7 @@ function Comments() {
         return toast.error("Comment cannot be empty");
       }
 
-      const url = `http://localhost:8080/posts/${postId}/comments`;
+      const url = `${process.env.REACT_APP_API_URL}/posts/${postId}/comments`;
 
       const response = await fetch(url, {
         method: "POST",
@@ -164,7 +164,7 @@ function Comments() {
   // Delete comment
   const deleteComment = async (commentId) => {
     try {
-      const url = `http://localhost:8080/posts/comments/${commentId}`;
+      const url = `${process.env.REACT_APP_API_URL}/posts/comments/${commentId}`;
 
       const response = await fetch(url, {
         method: "DELETE",

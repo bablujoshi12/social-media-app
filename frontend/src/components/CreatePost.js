@@ -20,7 +20,7 @@ function CreatePost({ onPostCreated }) {
       formData.append("caption", caption);
       formData.append("image", image);
 
-      const response = await fetch("http://localhost:8080/posts", {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/posts`, {
         method: "POST",
         headers: {
           authorization: localStorage.getItem("token"),

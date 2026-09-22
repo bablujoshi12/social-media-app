@@ -17,7 +17,7 @@ function Search() {
         return toast.error("Please enter username");
       }
 
-      const url = `http://localhost:8080/users/search/username?username=${encodeURIComponent(
+      const url = `${process.env.REACT_APP_API_URL}/users/search/username?username=${encodeURIComponent(
         search,
       )}`;
 

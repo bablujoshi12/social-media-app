@@ -26,7 +26,7 @@ function PostCard({ post, onLike, onDelete, onUpdated }) {
 
   const handleLike = async () => {
     try {
-      const url = `http://localhost:8080/posts/${post._id}/like`;
+      const url = `${process.env.REACT_APP_API_URL}/posts/${post._id}/like`;
 
       const response = await fetch(url, {
         method: "POST",
@@ -70,12 +70,15 @@ function PostCard({ post, onLike, onDelete, onUpdated }) {
     }
 
     try {
-      const response = await fetch(`http://localhost:8080/posts/${post._id}`, {
-        method: "DELETE",
-        headers: {
-          authorization: localStorage.getItem("token"),
+      const response = await fetch(
+        `${process.env.REACT_APP_API_URL}/posts/${post._id}`,
+        {
+          method: "DELETE",
+          headers: {
+            authorization: localStorage.getItem("token"),
+          },
         },
-      });
+      );
 
       const result = await response.json();
 
