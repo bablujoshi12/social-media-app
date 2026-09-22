@@ -24,7 +24,7 @@ function App() {
             localStorage.getItem("token") ? (
               <Navigate to="/home" replace />
             ) : (
-              <Navigate to="/login" replace />
+              <Navigate to="/signup" replace />
             )
           }
         />
