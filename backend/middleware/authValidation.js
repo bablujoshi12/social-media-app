@@ -4,7 +4,7 @@ const ExpressError = require("../utils/ExpressError");
 
 const signupValidation = (req, res, next) => {
   const signupSchema = Joi.object({
-    username: Joi.string().min(7).max(20).required(),
+    username: Joi.string().min(4).max(20).required(),
     email: Joi.string().email().required(),
     password: Joi.string()
       .pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/)
