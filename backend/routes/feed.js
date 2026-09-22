@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const isAuthentication = require("../middleware/isauthentication");
+const isAuthentication = require("../middleware/isAuthentication");
 const wrapAsync = require("../utils/wrapAsync");
 
 const { getFeed } = require("../controllers/feed");

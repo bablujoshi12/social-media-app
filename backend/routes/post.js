@@ -17,7 +17,7 @@ const {
   getUserPosts,
 } = require("../controllers/post");
 
-const isAuthentication = require("../middleware/isauthentication");
+const isAuthentication = require("../middleware/isAuthentication");
 
 const {
   postValidation,

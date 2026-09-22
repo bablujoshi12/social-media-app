@@ -17,7 +17,7 @@ const { profileValidation } = require("../middleware/profileValidation");
 
 const upload = require("../utils/multerConfig");
 
-const isAuthentication = require("../middleware/isauthentication");
+const isAuthentication = require("../middleware/isAuthentication");
 const wrapAsync = require("../utils/wrapAsync");
 const User = require("../models/User");
 const ExpressError = require("../utils/ExpressError");
